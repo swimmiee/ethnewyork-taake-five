@@ -1,7 +1,7 @@
 export enum Step {
   Intro,
   Risk,
-  Invest,
+  Investment,
   PriceRange,
   Input,
   Last,

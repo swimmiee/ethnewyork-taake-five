@@ -7,14 +7,19 @@
 }
 
 .btn {
-  @apply rounded-xl disabled:opacity-70 h-9;
+  @apply rounded-lg disabled:opacity-70 py-2 text-lg;
 }
 
-.btn-primary {
-  @apply border-[1.5px] border-black bg-primary-500 text-black;
-}
-.btn-secondary {
-  @apply bg-neutral-100 text-neutral-700;
+@layer components {
+  .btn-primary-active {
+    @apply border-[1.5px] border-black bg-primary-500;
+  }
+  .btn-primary {
+    @apply border-[1.5px] border-neutral-300 hover:btn-primary-active bg-white;
+  }
+  .btn-secondary {
+    @apply bg-neutral-100 text-neutral-700;
+  }
 }
 
 .flex-center {
