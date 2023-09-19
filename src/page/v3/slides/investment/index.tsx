@@ -2,7 +2,6 @@ import { Wrapper } from "page/v3/sections/Wrapper";
 import { useV3Selection } from "states/v3-global.states";
 import { Step } from "../../step.enum";
 import { useState } from "react";
-import { Chain } from "interfaces/chain.interface";
 import { cn } from "utils/cn";
 import { CHAINS } from "config/chains.config";
 import { ChainButton } from "./ChainButton";
@@ -11,7 +10,6 @@ import { InvestItemList } from "./InvestItemList";
 const Investment = () => {
   // null => no matter
   const [selectedChainId, setChainId] = useState<number | null>(null);
-  const [investSelection, setInvestSelection] = useV3Selection(Step.Investment);
 
   return (
     <Wrapper>
@@ -37,7 +35,7 @@ const Investment = () => {
       </div>
 
       {/* Investments */}
-      <p className="text-2xl mt-4">Select Uniswap V3 Pool</p>
+      <p className="text-2xl my-4">Select Uniswap V3 Pool</p>
       <InvestItemList chainId={selectedChainId} />
     </Wrapper>
   );

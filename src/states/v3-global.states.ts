@@ -34,7 +34,7 @@ export const useV3Step = () => {
       canNext = selections[Step.Risk] !== null && selections[Step.Risk] > -1;
       break;
     case Step.Investment:
-      canNext = true;
+      canNext = selections[Step.Investment] !== null;
       break;
     case Step.PriceRange:
       canNext = true;

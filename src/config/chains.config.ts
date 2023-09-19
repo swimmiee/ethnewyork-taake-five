@@ -1,7 +1,5 @@
 import { Chain } from "interfaces/chain.interface";
 
-const SUPPORTED_CHAINS = [1, 10, 137, 59144, 1101, 167005];
-
 export const CHAINS: Chain[] = [
   {
     chainId: 1,
@@ -24,6 +22,20 @@ export const CHAINS: Chain[] = [
     explorer: "https://optimistic.etherscan.io/",
   },
   {
+    chainId: 56,
+    logoURI:
+      "https://raw.githubusercontent.com/lifinance/types/main/src/assets/icons/chains/bsc.svg",
+    name: "BSC",
+    symbol: "BNB",
+    multicallAddress: "0xcA11bde05977b3631167028862bE2a173976CA11",
+    rpcUrls: [
+      "https://bsc-dataseed.binance.org/",
+      "https://bsc-dataseed1.defibit.io/",
+      "https://bsc-dataseed1.ninicoin.io/",
+    ],
+    explorer: "https://bscscan.com/",
+  },
+  {
     chainId: 137,
     logoURI:
       "https://research.binance.com/static/images/projects/matic-network/logo.png",
@@ -35,6 +47,16 @@ export const CHAINS: Chain[] = [
       "https://rpc-mainnet.maticvigil.com/",
     ],
     explorer: "https://polygonscan.com/",
+  },
+  {
+    chainId: 8453,
+    logoURI:
+      "https://app.uniswap.org/static/media/base_logo.592b9f3296cf185dc13a87accb29f844.svg",
+    name: "Base",
+    symbol: "ETH",
+    multicallAddress: "0xcA11bde05977b3631167028862bE2a173976CA11",
+    rpcUrls: ["https://base.publicnode.com"],
+    explorer: "https://basescan.org/",
   },
   {
     chainId: 42161,
@@ -65,4 +87,4 @@ export const CHAINS: Chain[] = [
     rpcUrls: ["https://arb1.arbitrum.io/rpc"],
     explorer: "https://arbiscan.io/",
   },
-].filter((c) => SUPPORTED_CHAINS.includes(c.chainId));
+]
