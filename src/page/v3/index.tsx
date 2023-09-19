@@ -1,14 +1,16 @@
 import { BG } from "page/common/BG";
 import { useEffect } from "react";
 import { Step } from "./step.enum";
-import { Header } from "./sections/Header";
-import { useStep } from "states/step.atom";
+import { Header } from "../common/Header";
+import { useV3Step } from "states/v3-global.states";
 import { Footer } from "./sections/Footer";
 import Risk from "./slides/Risk";
-import Investment from "./slides/Investment";
+import Investment from "./slides/investment";
+import titles from "./sections/titles";
 
 export default function InvestV3Page() {
-  const [step, setStep] = useStep();
+  const [step, setStep] = useV3Step();
+  const title = titles[step];
   // prevent go back
   useEffect(() => {
     setStep(Step.Risk);
@@ -20,7 +22,7 @@ export default function InvestV3Page() {
 
   return (
     <BG>
-      <Header />
+      <Header title={title} />
       {step === Step.Risk && <Risk />}
       {step === Step.Investment && <Investment />}
 

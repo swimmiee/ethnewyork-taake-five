@@ -18,7 +18,7 @@ export default function HomePage() {
             <Link to={ROUTES.V3}>Invest in UniswapV3</Link>
           </button>
           <button className="btn border-[1.5px] border-black bg-rose-400 text-black">
-            <Link to={ROUTES.V3}>Invest in UniswapV4</Link>
+            <Link to={ROUTES.V4}>Invest in UniswapV4</Link>
           </button>
         </div>
       </div>

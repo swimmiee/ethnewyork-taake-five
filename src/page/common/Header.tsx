@@ -1,12 +1,11 @@
-import { useStep } from "states/step.atom";
-import titles from "./titles";
+import ROUTES from "router/routes";
 import { IoChevronForward } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import ROUTES from "router/routes";
 
-export const Header = () => {
-  const [step] = useStep();
-  const title = titles[step];
+interface HeaderProps {
+  title: string;
+}
+export const Header = ({ title }: HeaderProps) => {
   return (
     <header className="border-b px-4 py-2.5 flex justify-between">
       <p className="text-lg font-medium">{title}</p>

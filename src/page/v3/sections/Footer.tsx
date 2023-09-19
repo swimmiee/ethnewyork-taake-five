@@ -1,10 +1,10 @@
 import { Step } from "page/v3/step.enum";
 import { useState } from "react";
-import { useStep } from "states/step.atom";
+import { useV3Step } from "states/v3-global.states";
 import titles from "./titles";
 
 export const Footer = () => {
-  const [step, setStep, canNext] = useStep();
+  const [step, setStep, canNext] = useV3Step();
   const prevTitle = titles[step - 1];
   const nextTitle = titles[step + 1];
   const toPrev = () => setStep((prev) => prev - 1);

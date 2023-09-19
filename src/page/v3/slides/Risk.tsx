@@ -1,10 +1,10 @@
-import { useSelection } from "states/step.atom";
+import { useV3Selection } from "states/v3-global.states";
 import { Wrapper } from "../sections/Wrapper";
 import { Step } from "../step.enum";
 import { cn } from "utils/cn";
 
 const Risk = () => {
-  const [selectedRisk, selectRisk] = useSelection(Step.Risk);
+  const [selectedRisk, selectRisk] = useV3Selection(Step.Risk);
 
   const RiskButton = ({ risk, text }: { risk: number; text: string }) => (
     <button

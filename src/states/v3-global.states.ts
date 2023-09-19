@@ -6,7 +6,15 @@ const stepAtom = atom<Step>({
   default: Step.Risk,
 });
 
-const selectionsAtom = atom<Record<Step, any>>({
+interface Selections {
+  [Step.Risk]: number | null;
+  [Step.Investment]: string | null;
+  [Step.PriceRange]: number | null;
+  [Step.Input]: number | null;
+  [Step.Last]: number | null;
+}
+
+const selectionsAtom = atom<Selections>({
   key: "atom/selections",
   default: {
     [Step.Risk]: null,
@@ -17,7 +25,7 @@ const selectionsAtom = atom<Record<Step, any>>({
   },
 });
 
-export const useStep = () => {
+export const useV3Step = () => {
   const [step, setStep] = useRecoilState(stepAtom);
   const selections = useRecoilValue(selectionsAtom);
   let canNext = false;
@@ -42,11 +50,11 @@ export const useStep = () => {
   return [step, setStep, canNext] as const;
 };
 
-export const useSelection = (step: Step) => {
+export const useV3Selection = (step: Step) => {
   const [selection, setSelection] = useRecoilState(selectionsAtom);
   return [
     selection[step],
-    (value: any) => {
+    (value: (typeof selection)[Step]) => {
       setSelection((selections) => ({
         ...selections,
         [step]: value,
