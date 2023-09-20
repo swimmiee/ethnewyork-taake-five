@@ -7,13 +7,13 @@ import { useState } from "react";
 import { Token } from "interfaces/token.interface";
 import { encodeTokenId } from "config/tokenIdEncoder";
 import { TokenAmount } from "./slides/TokenAmount";
+import { Invest } from "interfaces/invest.interface";
 
 interface InputModalProps {
+  invest: Invest;
   closeModal: () => void;
 }
-export const InputModal = ({ closeModal }: InputModalProps) => {
-  const [investId] = useV3Selection(Step.Investment);
-  const invest = V3Invests.find((i) => i.id === investId)!;
+export const InputModal = ({ invest, closeModal }: InputModalProps) => {
   const [selectedTokenId, setSelectedTokenId] = useState<string>();
   const selectToken = (t: Token) => setSelectedTokenId(encodeTokenId(t));
   const unselect = () => setSelectedTokenId(undefined);
@@ -29,7 +29,11 @@ export const InputModal = ({ closeModal }: InputModalProps) => {
   return (
     <Modal title="Select Input Token" closeModal={closeModal}>
       {selectedTokenId ? (
-        <TokenAmount tokenId={selectedTokenId} addInput={addInput} unselect={unselect} />
+        <TokenAmount
+          tokenId={selectedTokenId}
+          addInput={addInput}
+          unselect={unselect}
+        />
       ) : (
         <BalanceList chainId={invest.chainId} selectToken={selectToken} />
       )}

@@ -13,6 +13,7 @@ export default function HomePage() {
           <b className="font-medium">YOU</b>
         </p>
 
+        <p className="text-xl mt-4  mb-2">Invest</p>
         <div className="flex flex-col gap-4">
           <button className="btn btn-primary-active">
             <Link to={ROUTES.V3}>Invest in UniswapV3</Link>

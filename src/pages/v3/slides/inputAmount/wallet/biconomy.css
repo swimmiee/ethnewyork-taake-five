@@ -1,0 +1,14 @@
+#w3a-modal > div {
+  background-color: #fff !important;
+}
+
+.w3ajs-social-logins {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.w3ajs-social-logins > ul {
+    display: flex;
+}
