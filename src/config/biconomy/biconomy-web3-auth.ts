@@ -6,11 +6,12 @@ import {
 } from "states/biconomy.state";
 import { getBiconomyAPI } from "./biconomy.configs";
 import { BiconomySmartAccount } from "@biconomy/account";
-import { $account } from "states/account.state";
+import { useSetAccount } from "states/account.state";
 
 export const useWeb3SocialLogin = (chainId: number) => {
   const [interval, enableInterval] = useState(false);
   const [loading, setLoading] = useState(false);
+  const setAccount = useSetAccount<"biconomy">();
 
   useEffect(() => {
     const sdk = $biconomySocialSDK.getValue();
@@ -75,13 +76,17 @@ export const useWeb3SocialLogin = (chainId: number) => {
         // @ts-ignore
         address: biconomySmartAccount.address,
       });
-      $account.next({
+      setAccount({
         from: "biconomy",
         provider: web3Provider,
         signer: web3Provider.getSigner(),
         // @ts-ignore
         address: biconomySmartAccount.address,
+        meta: {
+          smartAccount: biconomySmartAccount,
+        },
       });
+
       setLoading(false);
     } catch (err) {
       console.log("error setting up smart account... ", err);

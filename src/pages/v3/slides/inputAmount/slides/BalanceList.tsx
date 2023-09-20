@@ -1,35 +1,41 @@
-import { TOKENS } from "config/tokens.config";
+import { findToken } from "config";
+import { encodeTokenId } from "config/tokenIdEncoder";
 import { Token } from "interfaces/token.interface";
 import { TokenIcon } from "pages/common/coinIcons/TokenIcon";
 import { IoChevronForward } from "react-icons/io5";
+import { useTokenBalancesInChain } from "states/balances.state";
 
 interface BalanceListProps {
   chainId: number;
   selectToken: (t: Token) => void;
 }
 export const BalanceList = ({ chainId, selectToken }: BalanceListProps) => {
-  // TODO: MOCK TOKENS
-  const tokens = TOKENS[chainId].slice(0, 3);
-  const amounts = [17, 32.4, 102];
-  return (
-    <div className="flex flex-col">
-      {tokens.map((t, i) => (
-        <div
-          key={i}
-          onClick={() => selectToken(t)}
-          className="flex items-center justify-between gap-4 py-4 px-4 hover:bg-neutral-100"
-        >
-          <TokenIcon token={t} size="xl" />
-          <div className="flex flex-1 justify-between">
-            <p className="text-black">{t.symbol}</p>
-            <div>
-              <p>Your Balance : {amounts[i]}</p>
-            </div>
-          </div>
+  const tokenBalances = useTokenBalancesInChain(chainId);
 
-          <IoChevronForward size={22} className="-mr-1" />
-        </div>
-      ))}
-    </div>
+  return (
+    tokenBalances && (
+      <div className="flex flex-col">
+        {tokenBalances.map(({ address, amount }, i) => {
+          const token = findToken(encodeTokenId({ chainId, address }))!;
+          return (
+            <div
+              key={i}
+              onClick={() => selectToken(token)}
+              className="flex items-center justify-between gap-4 py-4 px-4 hover:bg-neutral-100"
+            >
+              .
+              <TokenIcon token={token} size="xl" />
+              <div className="flex flex-1 justify-between">
+                <p className="text-black">{token.symbol}</p>
+                <div>
+                  <p>Your Balance : {amount}</p>
+                </div>
+              </div>
+              <IoChevronForward size={22} className="-mr-1" />
+            </div>
+          );
+        })}
+      </div>
+    )
   );
 };
