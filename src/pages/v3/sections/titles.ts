@@ -1,2 +1,2 @@
-const titles = ["Risk", "Invest", "Price Range", "Input", "Done!"];
+const titles = ["Risk", "Pool", "Price Range", "Input", "Invest","Done!"];
 export default titles;

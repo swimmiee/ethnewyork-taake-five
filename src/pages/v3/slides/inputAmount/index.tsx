@@ -20,15 +20,19 @@ export const InputAmount = () => {
 
   return (
     <Wrapper>
-      {tokemAmountList.map(([tokenId, amount], i) => (
-        <TokenAmount
-          key={i}
-          del={() => deleteToken(tokenId)}
-          tokenId={tokenId}
-          amount={amount}
-        />
-      ))}
-      <AddButton onClick={openModal} />
+      <p className="text-3xl">Which token</p>
+      <p className="text-3xl">do you want to invest?</p>
+      <div className="flex flex-col mt-6 gap-4">
+        {tokemAmountList.map(([tokenId, amount], i) => (
+          <TokenAmount
+            key={i}
+            del={() => deleteToken(tokenId)}
+            tokenId={tokenId}
+            amount={amount}
+          />
+        ))}
+        <AddButton onClick={openModal} />
+      </div>
 
       {isOpen && <InputModal closeModal={closeModal} />}
     </Wrapper>

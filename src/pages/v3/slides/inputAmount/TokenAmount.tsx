@@ -11,8 +11,8 @@ export const TokenAmount = ({ tokenId, amount, del }: TokenAmountProps) => {
   const token = findToken(tokenId)!;
 
   return (
-    <div className="flex items-center justify-between p-4">
-      <TokenIcon token={token} size="lg" />
+    <div className="border-[1.5px] border-neutral-500 rounded-xl flex items-center justify-between p-3">
+      <TokenIcon token={token} size="xl" />
       <p className="flex-1 text-center">
         {amount} {token.symbol}
       </p>

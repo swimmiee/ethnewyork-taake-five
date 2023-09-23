@@ -10,6 +10,7 @@ import { Footer } from "./sections/Footer";
 import { Done } from "./slides/done";
 import { InputAmount } from "./slides/inputAmount";
 import { PriceRange } from "./slides/priceRange";
+import { TXSlide } from "./slides/tx";
 
 export default function InvestV3Page() {
   const [step, setStep] = useV3Step();
@@ -30,9 +31,10 @@ export default function InvestV3Page() {
       {step === Step.Investment && <Investment />}
       {step === Step.PriceRange && <PriceRange />}
       {step === Step.Input && <InputAmount />}
+      {step === Step.Tx && <TXSlide />}
       {step === Step.Done && <Done />}
 
-      <Footer />
+      {step <= Step.Input && <Footer />}
     </BG>
   );
 }

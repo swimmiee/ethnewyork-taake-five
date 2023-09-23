@@ -33,7 +33,7 @@ const Investment = () => {
       </div>
 
       {/* Investments */}
-      <p className="text-2xl my-4">Select Uniswap V3 Pool</p>
+      <p className="text-2xl my-4">Select Uniswap V3 Pool to Invest</p>
       <InvestItemList chainId={selectedChainId} />
     </Wrapper>
   );
