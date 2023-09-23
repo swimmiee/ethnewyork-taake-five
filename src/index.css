@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  font-family: "Outfit", system-ui, -apple-system;
+}
+
+.btn {
+  @apply rounded-xl disabled:opacity-70 h-9;
+}
+
+.btn-primary {
+  @apply border-[1.5px] border-black bg-primary-500 text-black;
+}
+.btn-secondary {
+  @apply bg-neutral-100 text-neutral-700;
+}
+
+.flex-center {
+  @apply flex items-center justify-center;
+}
