@@ -12,7 +12,7 @@
 
 @layer components {
   .btn-primary-active {
-    @apply border-[1.5px] border-black bg-primary-500;
+    @apply border-[1.5px] enabled:border-black enabled:bg-primary-500 disabled:text-neutral-500;
   }
   .btn-primary {
     @apply border-[1.5px] border-neutral-300 hover:btn-primary-active bg-white;

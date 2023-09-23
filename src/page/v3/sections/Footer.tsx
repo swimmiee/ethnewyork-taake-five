@@ -1,4 +1,4 @@
-import { Step } from "mainPage/step.enum";
+import { Step } from "page/v3/step.enum";
 import { useState } from "react";
 import { useStep } from "states/step.atom";
 import titles from "./titles";
@@ -19,7 +19,7 @@ export const Footer = () => {
       <button
         disabled={!canNext}
         onClick={toNext}
-        className="flex-1 btn btn-primary-active"
+        className={"flex-1 btn btn-primary-active"}
       >
         {step < Step.Input
           ? `Next: ${nextTitle}`

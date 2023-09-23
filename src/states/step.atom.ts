@@ -1,9 +1,9 @@
-import { Step } from "mainPage/step.enum";
+import { Step } from "page/v3/step.enum";
 import { atom, useRecoilState, useRecoilValue } from "recoil";
 
 const stepAtom = atom<Step>({
   key: "atom/step",
-  default: Step.Intro,
+  default: Step.Risk,
 });
 
 const selectionsAtom = atom<Record<Step, any>>({
@@ -14,7 +14,6 @@ const selectionsAtom = atom<Record<Step, any>>({
     [Step.PriceRange]: null,
     [Step.Input]: null,
     [Step.Last]: null,
-    [Step.Intro]: null,
   },
 });
 
@@ -23,9 +22,6 @@ export const useStep = () => {
   const selections = useRecoilValue(selectionsAtom);
   let canNext = false;
   switch (step) {
-    case Step.Intro:
-      canNext = true;
-      break;
     case Step.Risk:
       canNext = selections[Step.Risk] !== null && selections[Step.Risk] > -1;
       break;

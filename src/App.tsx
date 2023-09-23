@@ -1,10 +1,10 @@
-import MainPage from "mainPage";
 import { RecoilRoot } from "recoil";
+import Router from "router";
 
 function App() {
   return (
     <RecoilRoot>
-      <MainPage />
+      <Router />
     </RecoilRoot>
   );
 }
