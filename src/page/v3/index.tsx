@@ -7,6 +7,9 @@ import { Footer } from "./sections/Footer";
 import Risk from "./slides/Risk";
 import Investment from "./slides/investment";
 import titles from "./sections/titles";
+import { Done } from "./slides/done";
+import { InputAmount } from "./slides/inputAmount";
+import { PriceRange } from "./slides/priceRange";
 
 export default function InvestV3Page() {
   const [step, setStep] = useV3Step();
@@ -25,6 +28,9 @@ export default function InvestV3Page() {
       <Header title={title} />
       {step === Step.Risk && <Risk />}
       {step === Step.Investment && <Investment />}
+      {step === Step.PriceRange && <PriceRange />}
+      {step === Step.Input && <InputAmount />}
+      {step === Step.Done && <Done />}
 
       <Footer />
     </BG>

@@ -11,7 +11,7 @@ interface Selections {
   [Step.Investment]: string | null;
   [Step.PriceRange]: number | null;
   [Step.Input]: number | null;
-  [Step.Last]: number | null;
+  [Step.Done]: number | null;
 }
 
 const selectionsAtom = atom<Selections>({
@@ -21,7 +21,7 @@ const selectionsAtom = atom<Selections>({
     [Step.Investment]: null,
     [Step.PriceRange]: null,
     [Step.Input]: null,
-    [Step.Last]: null,
+    [Step.Done]: null,
   },
 });
 
@@ -42,7 +42,7 @@ export const useV3Step = () => {
     case Step.Input:
       canNext = true;
       break;
-    case Step.Last:
+    case Step.Done:
       canNext = true;
       break;
   }

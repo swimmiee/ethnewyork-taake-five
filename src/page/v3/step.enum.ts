@@ -3,5 +3,5 @@ export enum Step {
   Investment,
   PriceRange,
   Input,
-  Last,
+  Done,
 }

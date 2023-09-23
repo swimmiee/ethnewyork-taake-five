@@ -1,6 +1,4 @@
 import { Wrapper } from "page/v3/sections/Wrapper";
-import { useV3Selection } from "states/v3-global.states";
-import { Step } from "../../step.enum";
 import { useState } from "react";
 import { cn } from "utils/cn";
 import { CHAINS } from "config/chains.config";
