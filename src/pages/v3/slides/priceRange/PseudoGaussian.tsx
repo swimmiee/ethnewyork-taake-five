@@ -1,4 +1,4 @@
-import { findChain } from "config";
+import { findChain, findTokens } from "config";
 import { V3Invests } from "config/invests.config";
 import { Step } from "pages/v3/step.enum";
 import { useEffect, useState } from "react";
@@ -18,25 +18,26 @@ const points = Array(virtualTickSize + 1)
   });
 // default: 1 sigma = 68.27%
 const oneSigma = Math.floor(virtualTickSize * 0.34);
-const tick2Price = (tick: number) => toFixedCond(1.0001 ** tick, 1);
 
 export const PseudoGaussian = () => {
   const [currentTick, setCurrentTick] = useState<number>();
   const [investId] = useV3Selection(Step.Investment);
   const invest = V3Invests.find((i) => i.id === investId)!;
+  const [token0, token1] = findTokens(invest.chainId, invest.inputAssets, true);
+  const [isToken0, setIsToken0] = useState<boolean>(token0.type !== "STABLE");
+
+  const [, setPriceRange] = useV3Selection(Step.PriceRange);
+
+  const tick2Price = (tick: number | undefined) => {
+    const price =
+      1.0001 ** (tick ?? 0) * 10 ** (token0.decimals - token1.decimals);
+    return toFixedCond(isToken0 ? price : 1 / price, 3);
+  };
+
   const chain = findChain(invest.chainId)!;
   const provider = getProvider(chain);
 
-  useEffect(() => {
-    UniswapV3Pool__factory.connect(invest.address, provider)
-      .slot0()
-      .then((res) => setCurrentTick(res.tick));
-  }, []);
-
   const [tickAmount, setTickAmount] = useState(oneSigma);
-  const onChangeTick = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTickAmount(Number(e.target.value));
-  };
   const sp = invest.meta.tickSpacing;
   const standardTickGap = sp * 3;
 
@@ -45,6 +46,20 @@ export const PseudoGaussian = () => {
 
   const tU = (currentTick ?? 0) + tickGap;
   const tL = (currentTick ?? 0) - tickGap;
+
+  useEffect(() => {
+    UniswapV3Pool__factory.connect(invest.address, provider)
+      .slot0()
+      .then(({ tick }) => {
+        setCurrentTick(tick);
+        setPriceRange(`${tick - tickGap}-${tick + tickGap}`);
+      });
+  }, []);
+
+  const onChangeTick = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTickAmount(Number(e.target.value));
+    setPriceRange(`${tL}-${tU}`);
+  };
 
   return (
     <div>
@@ -87,9 +102,9 @@ export const PseudoGaussian = () => {
       <div className="h-6 flex justify-around text-sm">
         {currentTick !== undefined && (
           <>
-            <p>{tick2Price(tL)}</p>
+            <p>{tick2Price(isToken0 ? tL : tU)}</p>
             <p>{tick2Price(currentTick)}</p>
-            <p>{tick2Price(tU)}</p>
+            <p>{tick2Price(isToken0 ? tU : tL)}</p>
           </>
         )}
       </div>
