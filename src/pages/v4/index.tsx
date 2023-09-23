@@ -1,5 +1,5 @@
-import { BG } from "page/common/BG";
-import { Header } from "page/common/Header";
+import { BG } from "pages/common/BG";
+import { Header } from "pages/common/Header";
 
 export default function InvestV4Page() {
   return (

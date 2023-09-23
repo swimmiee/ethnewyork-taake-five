@@ -1,4 +1,4 @@
-import { Step } from "page/v3/step.enum";
+import { Step } from "pages/v3/step.enum";
 import { useState } from "react";
 import { useV3Step } from "states/v3-global.states";
 import titles from "./titles";

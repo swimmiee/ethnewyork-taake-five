@@ -1,4 +1,4 @@
-import { BG } from "page/common/BG";
+import { BG } from "pages/common/BG";
 import { Link } from "react-router-dom";
 import ROUTES from "router/routes";
 

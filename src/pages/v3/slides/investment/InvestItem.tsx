@@ -1,7 +1,7 @@
 import { findChain, findTokens } from "config";
 import { Invest } from "interfaces/invest.interface";
-import { DoubleTokensIcon } from "page/common/coinIcons/DoubleTokenIcon";
-import { Step } from "page/v3/step.enum";
+import { DoubleTokensIcon } from "pages/common/coinIcons/DoubleTokenIcon";
+import { Step } from "pages/v3/step.enum";
 import { useV3Selection } from "states/v3-global.states";
 import { cn } from "utils/cn";
 import { compactFormat } from "utils/formatter";

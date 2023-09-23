@@ -1,6 +1,6 @@
 import { V3Invests } from "config/invests.config";
-import { Wrapper } from "page/v3/sections/Wrapper";
-import { Step } from "page/v3/step.enum";
+import { Wrapper } from "pages/v3/sections/Wrapper";
+import { Step } from "pages/v3/step.enum";
 import { useV3Selection } from "states/v3-global.states";
 
 export const Done = () => {

@@ -1,4 +1,4 @@
-import { Wrapper } from "page/v3/sections/Wrapper"
+import { Wrapper } from "pages/v3/sections/Wrapper"
 
 export const PriceRange = () => {
     return (

@@ -1,4 +1,4 @@
-import { BG } from "page/common/BG";
+import { BG } from "pages/common/BG";
 import { useEffect } from "react";
 import { Step } from "./step.enum";
 import { Header } from "../common/Header";

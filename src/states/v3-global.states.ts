@@ -1,4 +1,4 @@
-import { Step } from "page/v3/step.enum";
+import { Step } from "pages/v3/step.enum";
 import { atom, useRecoilState, useRecoilValue } from "recoil";
 
 const stepAtom = atom<Step>({

@@ -1,8 +1,8 @@
-import InvestV3Page from "page/v3";
+import InvestV3Page from "pages/v3";
 import ROUTES from "./routes";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import HomePage from "page/home";
-import InvestV4Page from "page/v4";
+import HomePage from "pages/home";
+import InvestV4Page from "pages/v4";
 
 export default function Router() {
   return (

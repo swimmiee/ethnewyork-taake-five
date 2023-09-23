@@ -1,5 +1,5 @@
 import { V3Invests } from "config/invests.config";
-import { Step } from "page/v3/step.enum";
+import { Step } from "pages/v3/step.enum";
 import { useEffect, useState } from "react";
 import { useV3Selection } from "states/v3-global.states";
 import { InvestItem } from "./InvestItem";
