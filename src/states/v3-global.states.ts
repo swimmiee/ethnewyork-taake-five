@@ -10,7 +10,8 @@ interface Selections {
   [Step.Risk]: number | null;
   [Step.Investment]: string | null;
   [Step.PriceRange]: string | null; // "0-1000"
-  [Step.Input]: number | null;
+  [Step.Input]: string | null;
+  [Step.Tx]: string | null; // txHash
   [Step.Done]: number | null;
 }
 
@@ -21,6 +22,7 @@ const selectionsAtom = atom<Selections>({
     [Step.Investment]: null,
     [Step.PriceRange]: null,
     [Step.Input]: null,
+    [Step.Tx]: null,
     [Step.Done]: null,
   },
 });
@@ -34,10 +36,11 @@ export const useV3Step = () => {
       canNext = selections[Step.Risk] !== null && selections[Step.Risk] > -1;
       break;
     case Step.Investment:
-    case Step.PriceRange:
       canNext = selections[Step.Investment] !== null;
       break;
-
+    case Step.PriceRange:
+      canNext = selections[Step.PriceRange] !== null;
+      break;
     case Step.Input:
       canNext = true;
       break;

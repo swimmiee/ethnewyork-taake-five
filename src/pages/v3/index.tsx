@@ -1,12 +1,12 @@
+import Risk from "./slides/Risk";
+import Investment from "./slides/investment";
+import titles from "./sections/titles";
 import { BG } from "pages/common/BG";
 import { useEffect } from "react";
 import { Step } from "./step.enum";
 import { Header } from "../common/Header";
 import { useV3Step } from "states/v3-global.states";
 import { Footer } from "./sections/Footer";
-import Risk from "./slides/Risk";
-import Investment from "./slides/investment";
-import titles from "./sections/titles";
 import { Done } from "./slides/done";
 import { InputAmount } from "./slides/inputAmount";
 import { PriceRange } from "./slides/priceRange";

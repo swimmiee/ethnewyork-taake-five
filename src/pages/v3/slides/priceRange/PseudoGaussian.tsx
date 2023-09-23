@@ -57,8 +57,10 @@ export const PseudoGaussian = () => {
   }, []);
 
   const onChangeTick = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTickAmount(Number(e.target.value));
-    setPriceRange(`${tL}-${tU}`);
+    if(currentTick !== undefined) {
+      setTickAmount(Number(e.target.value));
+      setPriceRange(`${tL}-${tU}`);
+    }
   };
 
   return (

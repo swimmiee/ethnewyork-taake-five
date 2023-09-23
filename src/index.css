@@ -9,6 +9,9 @@
 .btn {
   @apply rounded-lg disabled:opacity-70 py-2 text-lg;
 }
+.btn-sm {
+  @apply rounded-md disabled:opacity-70 py-1 ;
+}
 
 @layer components {
   .btn-primary-active {
