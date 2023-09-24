@@ -44,16 +44,6 @@ export const CHAINS: Chain[] = [
     explorer: "https://arbiscan.io/",
   },
   {
-    chainId: 42220,
-    logoURI:
-      "https://storage.googleapis.com/ethglobal-api-production/organizations%2Finotq%2Flogo%2F1678316332198_InjXBNx9_400x400.jpeg",
-    name: "Celo",
-    symbol: "CELO",
-    multicallAddress: "0xcA11bde05977b3631167028862bE2a173976CA11",
-    rpcUrls: ["https://1rpc.io/celo"],
-    explorer: "https://explorer.celo.org/mainnet/",
-  },
-  {
     chainId: 100,
     logoURI: "https://icons.llamao.fi/icons/chains/rsz_xdai.jpg",
     name: "Gnosis",
