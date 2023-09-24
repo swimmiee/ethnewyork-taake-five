@@ -52,14 +52,15 @@ export const PseudoGaussian = () => {
       .slot0()
       .then(({ tick }) => {
         setCurrentTick(tick);
-        setPriceRange(`${tick - tickGap}-${tick + tickGap}`);
+        console.log(tick, tickGap, `${tick - tickGap}_${tick + tickGap}`)
+        setPriceRange(`${tick - tickGap}_${tick + tickGap}`);
       });
   }, []);
 
   const onChangeTick = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (currentTick !== undefined) {
       setTickAmount(Number(e.target.value));
-      setPriceRange(`${tL}-${tU}`);
+      setPriceRange(`${tL}_${tU}`);
     }
   };
 

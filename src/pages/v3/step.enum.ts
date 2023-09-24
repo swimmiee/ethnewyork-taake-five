@@ -5,5 +5,6 @@ export enum Step {
   PriceRange,
   Input,
   Tx,
+  Pending,
   Done,
 }

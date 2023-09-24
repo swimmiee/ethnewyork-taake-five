@@ -76,6 +76,7 @@ export const v3Zap = async (
   tickUpper: number,
   to: string
 ) => {
+  const process = await getProcessData(invest, inputAssets, tickLower, tickUpper);
   const {
     tokenIn,
     tokenOut,
@@ -85,7 +86,7 @@ export const v3Zap = async (
     amountOut,
     swapAmountIn,
     isTokenInNative,
-  } = await getProcessData(invest, inputAssets, tickLower, tickUpper);
+  } = process
   const toasterItf = UniswapV3Toaster__factory.createInterface();
   const swapRouterItf = SwapRouterV2__factory.createInterface();
 
@@ -163,7 +164,10 @@ export const v3Zap = async (
   }
 
   return {
-    data: toasterItf.encodeFunctionData("multicall(bytes[])", [multicallData]),
-    value: nativeInputAmount,
+    process,
+    tx:{
+        data: toasterItf.encodeFunctionData("multicall(bytes[])", [multicallData]),
+        value: nativeInputAmount,
+    }
   };
 };

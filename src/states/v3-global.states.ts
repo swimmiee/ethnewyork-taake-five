@@ -10,9 +10,10 @@ interface Selections {
   [Step.Risk]: number | null;
   [Step.Chain]: number | null;
   [Step.Investment]: string | null;
-  [Step.PriceRange]: string | null; // "0-1000"
+  [Step.PriceRange]: string | null; // "0_1000"
   [Step.Input]: string | null;
-  [Step.Tx]: string | null; // txHash
+  [Step.Tx]: null;
+  [Step.Pending]: string | null; // txHash
   [Step.Done]: number | null;
 }
 
@@ -25,6 +26,7 @@ const selectionsAtom = atom<Selections>({
     [Step.PriceRange]: null,
     [Step.Input]: null,
     [Step.Tx]: null,
+    [Step.Pending]: null,
     [Step.Done]: null,
   },
 });

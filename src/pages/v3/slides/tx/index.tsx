@@ -1,7 +1,7 @@
 import { Wrapper } from "pages/v3/sections/Wrapper";
 import { IoCheckmarkCircle } from "react-icons/io5";
 import { BsCheck2Circle, BsPlusCircle } from "react-icons/bs";
-import { useV3Selection } from "states/v3-global.states";
+import { useV3Selection, useV3Step } from "states/v3-global.states";
 import { Step } from "pages/v3/step.enum";
 import { V3Invests } from "config/invests.config";
 import { findToken, findTokens } from "config";
@@ -14,6 +14,8 @@ import { $account } from "states/account.state";
 export const TXSlide = () => {
   const [investId] = useV3Selection(Step.Investment);
   const [priceRange] = useV3Selection(Step.PriceRange);
+  const [, setStep] = useV3Step();
+  const [, setTxResult] = useV3Selection(Step.Pending);
   const invest = V3Invests.find((i) => i.id === investId)!;
   const tokens = findTokens(invest.chainId, invest.inputAssets, true);
   const [inputsQS] = useV3Selection(Step.Input);
@@ -28,14 +30,15 @@ export const TXSlide = () => {
   useEffect(() => {
     const account = $account.getValue();
     if (!account) return;
-    const [tickLower, tikUpper] = (priceRange as string).split("-").map(Number);
-    console.log(tickLower, tikUpper)
+    const [tickLower, tikUpper] = (priceRange as string).split("_").map(Number);
+    console.log(tickLower, tikUpper);
     getInvestTx(inputs, invest, tickLower, tikUpper, account.address).then(
       (txs) => setTxs(txs)
     );
   }, []);
 
   const runTx = async () => {
+    setStep(Step.Pending);
     const account = $account.getValue();
     if (!txs.length || !account) return;
     return runBundleTxs(
@@ -45,7 +48,11 @@ export const TXSlide = () => {
         data: t.data,
         value: t.value,
       }))
-    );
+    ).then((res) => {
+      if (res) {
+        setTxResult(`${res.txHash}_${res.tokenId}`);
+      }
+    });
   };
 
   return (
@@ -78,7 +85,10 @@ export const TXSlide = () => {
             </div>
             <div>
               <p>Transaction Info</p>
-              {!openInfo && txs.map((tx, i) => <p key={i}>{tx.description}</p>)}
+              {!openInfo &&
+                txs
+                  .flatMap((tx) => tx.description)
+                  .map((d, i) => <p key={i}>{d}</p>)}
             </div>
           </div>
         </div>

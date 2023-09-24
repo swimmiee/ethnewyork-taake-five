@@ -11,6 +11,7 @@ import { v3Swap } from "./v3SwapTx";
 import { predictSwapV3 } from "./predictV3Swap";
 import { findChain, findToken, findTokens } from "config";
 import { v3Zap } from "./v3Zap";
+import { approveTx } from "./approveTx";
 
 export interface InputAsset {
   token: Token;
@@ -21,7 +22,7 @@ export interface TxDescription {
   data: string;
   to: string;
   value?: BigNumber;
-  description: string | string[];
+  description: string[];
 }
 
 export const getInvestTx = async (
@@ -49,8 +50,6 @@ export const getInvestTx = async (
       },
     })
     .then((res) => res.data.steps.filter((step) => step.type === "Swap"));
-
-  const erc20Itf = ERC20__factory.createInterface();
 
   const txs: TxDescription[] = [];
 
@@ -87,15 +86,9 @@ export const getInvestTx = async (
   steps.forEach((step, i) => {
     const { amount, amountIn, amountOut } = swapAmounts[i];
     if (step.fromToken.address !== AddressZero) {
-      txs.push({
-        data: erc20Itf.encodeFunctionData("approve", [
-          // invest.meta.toaster,
-          step.candidates[0].meta.swapRouter,
-          amountIn,
-        ]),
-        to: step.fromToken.address,
-        description: `Approve ${amount} ${step.fromToken.symbol}`,
-      });
+      txs.push(
+        approveTx(step.fromToken, step.candidates[0].meta.swapRouter, amountIn)
+      );
     }
     // push swap
     const { data, value } = v3Swap(amountIn, to, step);
@@ -103,40 +96,58 @@ export const getInvestTx = async (
       data,
       value,
       to: step.candidates[0].meta.swapRouter,
-      description: `Swap ${amount} ${step.fromToken.symbol} to ${formatUnits(
-        amountOut,
-        step.toToken.decimals
-      )} ${step.toToken.symbol}`,
+      description: [
+        `Swap ${amount} ${step.fromToken.symbol} to ${formatUnits(
+          amountOut,
+          step.toToken.decimals
+        )} ${step.toToken.symbol}`,
+      ],
     });
-    finalInput[step.toToken.address] = (finalInput[step.toToken.address] ?? constants.Zero).add(
-      amountOut.mul(999).div(1000)
-    );
+    finalInput[step.toToken.address] = (
+      finalInput[step.toToken.address] ?? constants.Zero
+    ).add(amountOut.mul(999).div(1000));
   });
 
-  const zapTx = await v3Zap(
-    invest,
-    Object.entries(finalInput).map(([address, amount]) => {
-      const token = findToken(encodeTokenId({ chainId, address }))!;
-      return {
-        token,
-        amount: formatUnits(amount, token.decimals),
-      };
-    }),
-    tickLower,
-    tickUpper,
-    to
-  );
+  const investInput = Object.entries(finalInput).map(([address, amount]) => {
+    const token = findToken(encodeTokenId({ chainId, address }))!;
+    return {
+      token,
+      amount: formatUnits(amount, token.decimals),
+    };
+  });
 
-  console.log(invest.meta.toaster)
+  const zap = await v3Zap(invest, investInput, tickLower, tickUpper, to);
+
+  investInput.forEach((input) => {
+    if (input.token.address !== AddressZero) {
+      txs.push(
+        approveTx(
+          input.token,
+          invest.meta.toaster,
+          parseUnits(input.amount, input.token.decimals)
+        )
+      );
+    }
+  });
+
+  const [tIn, tOut] = findTokens(
+    invest.chainId,
+    [zap.process.tokenIn, zap.process.tokenOut],
+    false
+  );
   txs.push({
-    data: zapTx.data,
+    data: zap.tx.data,
     to: invest.meta.toaster,
-    value: zapTx.value,
+    value: zap.tx.value,
     description: [
-       `Swap `, 
-      `Invest to Uniswap V3`
-    ]
-  })
+      `Swap ${formatUnits(zap.process.swapAmountIn, tIn.decimals)} ${
+        tIn.symbol
+      } to ${formatUnits(zap.process.swapAmountOut, tOut.decimals)} ${
+        tOut.symbol
+      }`,
+      `Invest to Uniswap V3`,
+    ],
+  });
 
   return txs;
 };

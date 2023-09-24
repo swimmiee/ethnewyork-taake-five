@@ -12,6 +12,7 @@ import { InputAmount } from "./slides/inputAmount";
 import { PriceRange } from "./slides/priceRange";
 import { TXSlide } from "./slides/tx";
 import { ChainSelection } from "./slides/chain";
+import { Pending } from "./slides/pending";
 
 export default function InvestV3Page() {
   const [step, setStep] = useV3Step();
@@ -34,6 +35,7 @@ export default function InvestV3Page() {
       {step === Step.PriceRange && <PriceRange />}
       {step === Step.Input && <InputAmount />}
       {step === Step.Tx && <TXSlide />}
+      {step === Step.Pending && <Pending />}
       {step === Step.Done && <Done />}
 
       {step <= Step.Input && (
