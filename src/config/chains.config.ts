@@ -69,7 +69,8 @@ export const CHAINS: Chain[] = [
     name: "Scroll",
     symbol: "ETH",
     multicallAddress: "0xcA11bde05977b3631167028862bE2a173976CA11",
-    rpcUrls: ["https://rpc.scroll.io"],
+    // rpcUrls: ["https://rpc.scroll.io"],
+    rpcUrls: ["https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"],
     explorer: "https://scroll.io/rollupscan/",
   },
   {

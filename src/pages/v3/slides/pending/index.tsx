@@ -9,7 +9,7 @@ export const Pending = () => {
   const [, setStep] = useV3Step();
   useEffect(() => {
     if (txInfo) {
-      setStep(Step.Risk);
+      setStep(Step.Done);
     }
   }, [txInfo]);
   return (

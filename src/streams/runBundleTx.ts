@@ -18,23 +18,33 @@ export const runBundleTxs = async (account: Account, txs: Tx[]) => {
       meta: { smartAccount },
     } = account as Account<"biconomy">;
 
+    console.log(11);
+    
     let partialUserOp = await smartAccount.buildUserOp(txs);
+    console.log(12);
     const biconomyPaymaster =
       smartAccount.paymaster as IHybridPaymaster<SponsorUserOperationDto>;
 
     let paymasterServiceData: SponsorUserOperationDto = {
       mode: PaymasterMode.SPONSORED,
+      // smartAccountInfo: {
+      //   name: "BICONOMY",
+      //   version: "1.0.0",
+      // },
     };
 
     try {
+      console.log(1);
       const paymasterAndDataResponse =
         await biconomyPaymaster.getPaymasterAndData(
           partialUserOp,
           paymasterServiceData
         );
+      console.log(2);
 
       partialUserOp.paymasterAndData =
         paymasterAndDataResponse.paymasterAndData;
+      console.log(3);
 
       const userOpResponse = await smartAccount.sendUserOp(partialUserOp);
       console.log("userOpResponse");

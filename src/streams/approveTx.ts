@@ -8,7 +8,6 @@ export const approveTx = (
   amount: BigNumber
 ) => {
   const erc20Itf = ERC20__factory.createInterface();
-
   return {
     data: erc20Itf.encodeFunctionData("approve", [spender, amount]),
     to: token.address,

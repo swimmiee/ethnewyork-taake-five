@@ -40,6 +40,7 @@ export const TXSlide = () => {
   const runTx = async () => {
     setStep(Step.Pending);
     const account = $account.getValue();
+    console.log(txs.length, account)
     if (!txs.length || !account) return;
     return runBundleTxs(
       account,

@@ -20,6 +20,7 @@ export const v3Swap = (
   const toNative = toToken.type === "NATIVE";
 
   if (path.length === 1) {
+    console.log({amountIn});
     executes.push(
       swapRouterItf.encodeFunctionData("exactInputSingle", [
         {

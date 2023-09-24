@@ -86,7 +86,8 @@ export const v3Zap = async (
     amountOut,
     swapAmountIn,
     isTokenInNative,
-  } = process
+  } = process;
+  console.log(process)
   const toasterItf = UniswapV3Toaster__factory.createInterface();
   const swapRouterItf = SwapRouterV2__factory.createInterface();
 
@@ -105,6 +106,7 @@ export const v3Zap = async (
     amount1Min: 0,
     recipient: to,
   };
+  console.log(mintParams);
 
   const multicallData: string[] = [];
   if (nativeInputAmount.gt(ZERO)) {

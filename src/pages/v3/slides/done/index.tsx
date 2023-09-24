@@ -3,14 +3,12 @@ import { V3Invests } from "config/invests.config";
 import { Wrapper } from "pages/v3/sections/Wrapper";
 import { Step } from "pages/v3/step.enum";
 import { useV3Selection } from "states/v3-global.states";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // 이거 없다는데 머지
 import { BsTelegram } from "react-icons/bs";
 
 export const Done = () => {
   const [investId] = useV3Selection(Step.Investment);
   const [txInfo] = useV3Selection(Step.Pending);
-  const [txHash, tokenId] = (txInfo as string) ?? "_".split("_");
+  const [txHash, tokenId] = ((txInfo as string) ?? "_").split("_");
 
   // Tip: User가 선택한 Invest 정보는 여기 있습니다~
   const invest = V3Invests.find(
@@ -19,17 +17,6 @@ export const Done = () => {
   const chain = findChain(invest.chainId)!;
   const explorer = `${chain.explorer}tx/${txHash}`;
   const uniswap = `https://app.uniswap.org/pools/${tokenId}`;
-
-  const [isOn, setIsOn] = useState(false);
-  const navigate = useNavigate();
-
-  const handleToggle = () => {
-    setIsOn(!isOn);
-    if (!isOn) {
-      // Redirect to a certain URL when turning the button on
-      navigate("/your-specific-url");
-    }
-  };
 
   return (
     <Wrapper>
@@ -50,11 +37,14 @@ export const Done = () => {
               View on Uniswap V3
             </button>
           </a>
-          <a target="_blank" href={uniswap}>
+          <a target="_blank" href="https://t.me/invest_alarm_bot">
             <button className="flex-center gap-2 btn btn-primary hover:btn-primary-active w-full">
               Get Notification on Telegram{" "}
               <BsTelegram size={21} color="#229ED9" />
             </button>
+          </a>
+          <a href={"http://localhost:5173"}>
+            <button className="btn btn-secondary w-full">Home</button>
           </a>
         </div>
       </div>

@@ -72,9 +72,9 @@ export const PseudoGaussian = () => {
             className={cn(
               "flex-1 border-y-[1.5px]",
               Math.abs(i - virtualTickSize / 2) < tickAmount
-                ? currentTick
-                  ? "border-y-black bg-primary-500"
-                  : "border-y-neutral-500 bg-neutral-200 animate-pulse"
+                ? currentTick === undefined
+                  ? "border-y-neutral-500 bg-neutral-200 animate-pulse"
+                  : "border-y-black bg-primary-500"
                 : "border-y-neutral-500 bg-neutral-50"
             )}
             style={{

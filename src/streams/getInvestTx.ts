@@ -97,10 +97,10 @@ export const getInvestTx = async (
       value,
       to: step.candidates[0].meta.swapRouter,
       description: [
-        `Swap ${amount} ${step.fromToken.symbol} to ${formatUnits(
+        `Swap ${amount} ${step.fromToken.symbol} to ${+(+formatUnits(
           amountOut,
           step.toToken.decimals
-        )} ${step.toToken.symbol}`,
+        )).toFixed(6)} ${step.toToken.symbol}`,
       ],
     });
     finalInput[step.toToken.address] = (
@@ -140,14 +140,17 @@ export const getInvestTx = async (
     to: invest.meta.toaster,
     value: zap.tx.value,
     description: [
-      `Swap ${formatUnits(zap.process.swapAmountIn, tIn.decimals)} ${
-        tIn.symbol
-      } to ${+(+formatUnits(zap.process.swapAmountOut, tOut.decimals)).toFixed(
+      `Swap ${+(+formatUnits(zap.process.swapAmountIn, tIn.decimals)).toFixed(
         6
-      )} ${tOut.symbol}`,
+      )} ${tIn.symbol} to ${+(+formatUnits(
+        zap.process.swapAmountOut,
+        tOut.decimals
+      )).toFixed(6)} ${tOut.symbol}`,
       `Invest Uniswap V3`,
     ],
   });
 
+
+  console.log(txs.map(t => t.data))
   return txs;
 };
