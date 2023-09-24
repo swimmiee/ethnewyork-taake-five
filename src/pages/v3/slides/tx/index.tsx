@@ -40,7 +40,7 @@ export const TXSlide = () => {
   const runTx = async () => {
     setStep(Step.Pending);
     const account = $account.getValue();
-    console.log(txs.length, account)
+    console.log(txs.length, account);
     if (!txs.length || !account) return;
     return runBundleTxs(
       account,
@@ -88,7 +88,14 @@ export const TXSlide = () => {
           {/* TXS */}
           <div className="flex items-center gap-2">
             <img src="/Check.svg" className="w-5" />
-            <p>Run {descriptions.length > 0 ? descriptions.length : " "} transactions by ONE CLICK</p>
+            <p>
+              Run&nbsp;
+              <b>
+                {descriptions.length > 0 ? descriptions.length : " "}
+                transactions
+              </b>
+              &nbsp;by ONE CLICK
+            </p>
           </div>
         </div>
         <div onClick={openModal} className="flex justify-end items-center mt-1">

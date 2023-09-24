@@ -10,7 +10,7 @@ export default function HomePage() {
 
         <img src="/logo.png" className="w-48 mx-auto" />
         </div>
-        <p className="text-xl mb-12 text-centerg">
+        <p className="text-xl mb-12 text-center">
           Interactive DeFi investing service for you
         </p>
         <div className="flex flex-col gap-4">

@@ -51,8 +51,9 @@ export const PseudoGaussian = () => {
     UniswapV3Pool__factory.connect(invest.address, provider)
       .slot0()
       .then(({ tick }) => {
-        setCurrentTick(tick);
-        setPriceRange(`${tick - tickGap}_${tick + tickGap}`);
+        const t = tick - (tick % invest.meta.tickSpacing);
+        setCurrentTick(t);
+        setPriceRange(`${t - tickGap}_${t + tickGap}`);
       });
   }, []);
 

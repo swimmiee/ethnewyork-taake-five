@@ -27,10 +27,6 @@ export const runBundleTxs = async (account: Account, txs: Tx[]) => {
 
     let paymasterServiceData: SponsorUserOperationDto = {
       mode: PaymasterMode.SPONSORED,
-      // smartAccountInfo: {
-      //   name: "BICONOMY",
-      //   version: "1.0.0",
-      // },
     };
 
     try {

@@ -6,7 +6,6 @@ import { formatUnits, parseUnits } from "ethers/lib/utils";
 import { Invest } from "interfaces/invest.interface";
 import { SwapStepDto } from "interfaces/swap-path.dto";
 import { Token } from "interfaces/token.interface";
-import { ERC20__factory } from "typechain";
 import { v3Swap } from "./v3SwapTx";
 import { predictSwapV3 } from "./predictV3Swap";
 import { findChain, findToken, findTokens } from "config";
