@@ -1,8 +1,9 @@
 import { getAddress } from "ethers/lib/utils";
-import { decodeTokenId } from "./tokenIdEncoder";
+import { decodeTokenId, encodeTokenId } from "./tokenIdEncoder";
 import { TOKENS } from "./tokens.config";
 import { CHAINS } from "./chains.config";
 import { constants } from "ethers";
+import { V3Invests } from "./invests.config";
 
 export const addrEqual = (a: string, b: string) =>
   getAddress(a) === getAddress(b);

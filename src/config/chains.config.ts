@@ -2,40 +2,6 @@ import { Chain } from "interfaces/chain.interface";
 
 export const CHAINS: Chain[] = [
   {
-    chainId: 1,
-    logoURI:
-      "https://raw.githubusercontent.com/lifinance/types/main/src/assets/icons/chains/ethereum.svg",
-    name: "Ethereum",
-    symbol: "ETH",
-    multicallAddress: "0xcA11bde05977b3631167028862bE2a173976CA11",
-    rpcUrls: ["https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"],
-    explorer: "https://etherscan.io/",
-  },
-  {
-    chainId: 10,
-    logoURI:
-      "https://raw.githubusercontent.com/lifinance/types/main/src/assets/icons/chains/optimism.svg",
-    name: "Optimism",
-    symbol: "ETH",
-    multicallAddress: "0xcA11bde05977b3631167028862bE2a173976CA11",
-    rpcUrls: ["https://mainnet.optimism.io/"],
-    explorer: "https://optimistic.etherscan.io/",
-  },
-  {
-    chainId: 56,
-    logoURI:
-      "https://raw.githubusercontent.com/lifinance/types/main/src/assets/icons/chains/bsc.svg",
-    name: "BSC",
-    symbol: "BNB",
-    multicallAddress: "0xcA11bde05977b3631167028862bE2a173976CA11",
-    rpcUrls: [
-      "https://bsc-dataseed.binance.org/",
-      "https://bsc-dataseed1.defibit.io/",
-      "https://bsc-dataseed1.ninicoin.io/",
-    ],
-    explorer: "https://bscscan.com/",
-  },
-  {
     chainId: 137,
     logoURI:
       "https://research.binance.com/static/images/projects/matic-network/logo.png",
@@ -49,16 +15,6 @@ export const CHAINS: Chain[] = [
     explorer: "https://polygonscan.com/",
   },
   {
-    chainId: 8453,
-    logoURI:
-      "https://app.uniswap.org/static/media/base_logo.592b9f3296cf185dc13a87accb29f844.svg",
-    name: "Base",
-    symbol: "ETH",
-    multicallAddress: "0xcA11bde05977b3631167028862bE2a173976CA11",
-    rpcUrls: ["https://base.publicnode.com"],
-    explorer: "https://basescan.org/",
-  },
-  {
     chainId: 42161,
     logoURI:
       "https://raw.githubusercontent.com/lifinance/types/main/src/assets/icons/chains/arbitrum.svg",
@@ -67,6 +23,16 @@ export const CHAINS: Chain[] = [
     multicallAddress: "0xcA11bde05977b3631167028862bE2a173976CA11",
     rpcUrls: ["https://rpc.ankr.com/arbitrum"],
     explorer: "https://arbiscan.io/",
+  },
+  {
+    chainId: 8453,
+    logoURI:
+      "https://storage.googleapis.com/ethglobal-api-production/organizations%2Fh5ps8%2Flogo%2F1678294488367_W-9qsu1e_400x400.jpeg",
+    name: "Base",
+    symbol: "ETH",
+    multicallAddress: "0xcA11bde05977b3631167028862bE2a173976CA11",
+    rpcUrls: ["https://base.publicnode.com"],
+    explorer: "https://basescan.org/",
   },
   {
     chainId: 59144,
@@ -78,13 +44,42 @@ export const CHAINS: Chain[] = [
     explorer: "https://arbiscan.io/",
   },
   {
-    chainId: 1101,
+    chainId: 42220,
     logoURI:
-      "https://assets.debank.com/static/media/polygon-zkevm.967a0a73.svg",
-    name: "Polygon zkEVM",
+      "https://storage.googleapis.com/ethglobal-api-production/organizations%2Finotq%2Flogo%2F1678316332198_InjXBNx9_400x400.jpeg",
+    name: "Celo",
+    symbol: "CELO",
+    multicallAddress: "0xcA11bde05977b3631167028862bE2a173976CA11",
+    rpcUrls: ["https://1rpc.io/celo"],
+    explorer: "https://explorer.celo.org/mainnet/",
+  },
+  {
+    chainId: 100,
+    logoURI: "https://icons.llamao.fi/icons/chains/rsz_xdai.jpg",
+    name: "Gnosis",
+    symbol: "XDAI",
+    multicallAddress: "0xcA11bde05977b3631167028862bE2a173976CA11",
+    rpcUrls: ["https://rpc.gnosischain.com"],
+    explorer: "https://gnosisscan.io/",
+  },
+  {
+    chainId: 534352,
+    logoURI:
+      "https://storage.googleapis.com/ethglobal-api-production/organizations%2Fyip67%2Fimages%2F5122.png",
+    name: "Scroll",
     symbol: "ETH",
     multicallAddress: "0xcA11bde05977b3631167028862bE2a173976CA11",
-    rpcUrls: ["https://zkevm-rpc.com"],
-    explorer: "https://arbiscan.io/",
+    rpcUrls: ["https://rpc.scroll.io"],
+    explorer: "https://scroll.io/rollupscan/",
+  },
+  {
+    chainId: 1,
+    logoURI:
+      "https://raw.githubusercontent.com/lifinance/types/main/src/assets/icons/chains/ethereum.svg",
+    name: "Ethereum",
+    symbol: "ETH",
+    multicallAddress: "0xcA11bde05977b3631167028862bE2a173976CA11",
+    rpcUrls: ["https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"],
+    explorer: "https://etherscan.io/",
   },
 ];
