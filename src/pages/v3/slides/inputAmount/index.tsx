@@ -49,7 +49,7 @@ export const InputAmount = () => {
             amount={amount}
           />
         ))}
-        <AddButton onClick={openModal} />
+        {account && <AddButton onClick={openModal} />}
       </div>
 
       {isOpen && <InputModal invest={invest} closeModal={closeModal} />}

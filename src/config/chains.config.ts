@@ -65,7 +65,7 @@ export const CHAINS: Chain[] = [
     name: "Arbitrum",
     symbol: "ETH",
     multicallAddress: "0xcA11bde05977b3631167028862bE2a173976CA11",
-    rpcUrls: ["https://arbitrum.llamarpc.com"],
+    rpcUrls: ["https://rpc.ankr.com/arbitrum"],
     explorer: "https://arbiscan.io/",
   },
   {
@@ -87,4 +87,4 @@ export const CHAINS: Chain[] = [
     rpcUrls: ["https://zkevm-rpc.com"],
     explorer: "https://arbiscan.io/",
   },
-]
+];

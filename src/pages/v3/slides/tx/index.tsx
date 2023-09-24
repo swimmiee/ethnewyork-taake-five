@@ -59,8 +59,11 @@ export const TXSlide = () => {
     <Wrapper>
       <div className="flex-1 flex flex-col justify-center">
         <div className="flex flex-col items-center">
-          <p className="text-3xl mb-2">You're ready to invest!</p>
-          <IoCheckmarkCircle color="#0077ff" size={80} />
+          <img src="/Check.svg" className="w-[88px]" />
+          <p className="text-3xl my-2">Are you ready?</p>
+          <p className="text-xl text-neutral-500">
+            Only one click away from investing!
+          </p>
         </div>
 
         <div className="flex flex-col bg-neutral-50 rounded-xl p-4 mt-4 gap-2">

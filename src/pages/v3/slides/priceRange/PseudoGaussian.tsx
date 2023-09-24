@@ -8,7 +8,7 @@ import { cn } from "utils/cn";
 import { toFixedCond } from "utils/formatter";
 import { getProvider } from "utils/getProvider";
 
-const virtualTickSize = 360;
+const virtualTickSize = 420;
 const points = Array(virtualTickSize + 1)
   .fill(0)
   .map((_, i, arr) => {
@@ -52,7 +52,6 @@ export const PseudoGaussian = () => {
       .slot0()
       .then(({ tick }) => {
         setCurrentTick(tick);
-        console.log(tick, tickGap, `${tick - tickGap}_${tick + tickGap}`)
         setPriceRange(`${tick - tickGap}_${tick + tickGap}`);
       });
   }, []);
@@ -65,7 +64,7 @@ export const PseudoGaussian = () => {
   };
 
   return (
-    <div>
+    <div className="mb-4">
       <div className="flex flex-1 h-[108px] items-end ">
         {points.map((point, i) => (
           <div
@@ -73,7 +72,9 @@ export const PseudoGaussian = () => {
             className={cn(
               "flex-1 border-y-[1.5px]",
               Math.abs(i - virtualTickSize / 2) < tickAmount
-                ? "border-y-black bg-primary-500"
+                ? currentTick
+                  ? "border-y-black bg-primary-500"
+                  : "border-y-neutral-500 bg-neutral-200 animate-pulse"
                 : "border-y-neutral-500 bg-neutral-50"
             )}
             style={{
@@ -110,6 +111,21 @@ export const PseudoGaussian = () => {
             <p>{tick2Price(isToken0 ? tU : tL)}</p>
           </>
         )}
+      </div>
+
+      <div className="flex flex-col items-end">
+        <button
+          disabled={currentTick === undefined}
+          onClick={() => setTickAmount(oneSigma)}
+          className="btn-sm btn-primary px-2.5"
+        >
+          Recommend
+        </button>
+        <p className="text-right">
+          *Recommended on a volatility basis
+          <br />
+          over the last month
+        </p>
       </div>
     </div>
   );
