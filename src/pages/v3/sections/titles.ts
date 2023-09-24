@@ -6,6 +6,6 @@ const titles = [
   "Input",
   "Invest",
   "Wait",
-  "Done!",
+  "Done !",
 ];
 export default titles;

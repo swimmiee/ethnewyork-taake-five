@@ -1,6 +1,4 @@
 import { Wrapper } from "pages/v3/sections/Wrapper";
-import { IoCheckmarkCircle } from "react-icons/io5";
-import { BsCheck2Circle, BsPlusCircle } from "react-icons/bs";
 import { useV3Selection, useV3Step } from "states/v3-global.states";
 import { Step } from "pages/v3/step.enum";
 import { V3Invests } from "config/invests.config";
@@ -10,6 +8,9 @@ import { TxDescription, getInvestTx } from "streams/getInvestTx";
 import { Footer } from "pages/v3/sections/Footer";
 import { runBundleTxs } from "streams/runBundleTx";
 import { $account } from "states/account.state";
+import { useModal } from "utils/hooks/useModal";
+import { IoChevronForward } from "react-icons/io5";
+import { TxInfoModal } from "./TxInfoModal";
 
 export const TXSlide = () => {
   const [investId] = useV3Selection(Step.Investment);
@@ -23,8 +24,7 @@ export const TXSlide = () => {
     new URLSearchParams(inputsQS as string).entries()
   ).map(([k, v]) => ({ token: findToken(k)!, amount: v }));
 
-  const [openInfo, setOpenInfo] = useState<boolean>(false);
-  const toggle = () => setOpenInfo((p) => !p);
+  const [isOpen, openModal, closeModal] = useModal(false);
 
   const [txs, setTxs] = useState<TxDescription[]>([]);
   useEffect(() => {
@@ -55,6 +55,7 @@ export const TXSlide = () => {
     });
   };
 
+  const descriptions = txs.flatMap((t) => t.description);
   return (
     <Wrapper>
       <div className="flex-1 flex flex-col justify-center">
@@ -66,10 +67,11 @@ export const TXSlide = () => {
           </p>
         </div>
 
-        <div className="flex flex-col bg-neutral-50 rounded-xl p-4 mt-4 gap-2">
+        <div className="flex flex-col border-[1.5px] border-black rounded-xl p-4 mt-4 gap-2">
           {/* NAME */}
           <div className="flex items-center gap-2">
-            <BsCheck2Circle size={24} />
+            <img src="/Check.svg" className="w-5" />
+
             <p>
               {invest.project} {tokens.map((t) => t.symbol).join(" + ")}
             </p>
@@ -77,25 +79,26 @@ export const TXSlide = () => {
 
           {/* FEE */}
           <div className="flex items-center gap-2">
-            <BsCheck2Circle size={24} />
+            <img src="/Check.svg" className="w-5" />
+
             <p>Fee {invest.meta.feeTier / 1e4}%</p>
           </div>
 
-          {/* Tx Info */}
-          <div onClick={toggle} className="flex gap-2">
-            <div className="w-6 h-6 flex-center">
-              <BsPlusCircle size={20} />
-            </div>
-            <div>
-              <p>Transaction Info</p>
-              {!openInfo &&
-                txs
-                  .flatMap((tx) => tx.description)
-                  .map((d, i) => <p key={i}>{d}</p>)}
-            </div>
+          {/* TXS */}
+          <div className="flex items-center gap-2">
+            <img src="/Check.svg" className="w-5" />
+            <p>Run {descriptions.length > 0 ? descriptions.length : " "} transactions by ONE CLICK</p>
           </div>
         </div>
+        <div onClick={openModal} className="flex justify-end items-center mt-1">
+          <p className=" text-lg">Transaction Details</p>
+          <IoChevronForward size={18} />
+        </div>
       </div>
+
+      {isOpen && (
+        <TxInfoModal closeModal={closeModal} descriptions={descriptions} />
+      )}
 
       <Footer onNext={runTx} />
     </Wrapper>

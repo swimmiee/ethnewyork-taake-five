@@ -11,7 +11,7 @@ export const Description = ({ title, children }: DescriptionProps) => {
   return (
     <div>
       <div onClick={toggle} className="flex items-center gap-1 mb-1.5">
-        <p className="text-lg font-semibold">{title}</p>
+        <p className="text-lg">{title}</p>
         {createElement(
             open ? IoChevronUp : IoChevronDown,
             {size: 20}

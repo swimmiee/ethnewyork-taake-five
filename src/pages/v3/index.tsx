@@ -19,7 +19,7 @@ export default function InvestV3Page() {
   const title = titles[step];
   // prevent go back
   useEffect(() => {
-    setStep(Step.Risk);
+    setStep(Step.Pending);
     window.history.pushState(null, document.title, window.location.href);
     window.addEventListener("popstate", function (event) {
       window.history.pushState(null, document.title, window.location.href);

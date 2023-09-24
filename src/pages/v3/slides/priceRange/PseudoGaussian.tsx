@@ -121,7 +121,7 @@ export const PseudoGaussian = () => {
         >
           Recommend
         </button>
-        <p className="text-right">
+        <p className="text-right leading-5 mt-1">
           *Recommended on a volatility basis
           <br />
           over the last month

@@ -17,8 +17,8 @@ export const BalanceList = ({ chainId, selectToken }: BalanceListProps) => {
   if (!tokenBalances)
     return (
       <div className="flex-col flex-center py-8">
-        <FaSpinner className="animate-spin" size={48} />
-        <p className="text-xl mt-8">Fetching token balances...</p>
+        <FaSpinner className="animate-spin" size={42} />
+        <p className="text-xl mt-4">Loading...</p>
       </div>
     );
   return (

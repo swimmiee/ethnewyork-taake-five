@@ -142,10 +142,10 @@ export const getInvestTx = async (
     description: [
       `Swap ${formatUnits(zap.process.swapAmountIn, tIn.decimals)} ${
         tIn.symbol
-      } to ${formatUnits(zap.process.swapAmountOut, tOut.decimals)} ${
-        tOut.symbol
-      }`,
-      `Invest to Uniswap V3`,
+      } to ${+(+formatUnits(zap.process.swapAmountOut, tOut.decimals)).toFixed(
+        6
+      )} ${tOut.symbol}`,
+      `Invest Uniswap V3`,
     ],
   });
 
