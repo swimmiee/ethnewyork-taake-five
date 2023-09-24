@@ -92,7 +92,7 @@ export const TXSlide = () => {
               Run&nbsp;
               <b>
                 {descriptions.length > 0 ? descriptions.length : " "}
-                transactions
+                &nbsp;transactions
               </b>
               &nbsp;by ONE CLICK
             </p>
