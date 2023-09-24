@@ -13,14 +13,14 @@ export const ChainSelection = () => {
       <p className="text-3xl mb-4">Which CHAIN do you prefer?</p>
       <button
         className={cn(
-          "my-2 btn",
+          "my-4 btn",
           selectedChainId === null ? "btn-primary-active" : "btn-primary"
         )}
         onClick={() => setChainId(null)}
       >
         Any Chain
       </button>
-      <div className="grid grid-cols-2 gap-2">
+      <div className="flex flex-col gap-4">
         {CHAINS.map((chain) => (
           <ChainButton
             key={chain.chainId}

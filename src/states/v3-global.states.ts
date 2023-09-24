@@ -3,8 +3,7 @@ import { atom, useRecoilState, useRecoilValue } from "recoil";
 
 const stepAtom = atom<Step>({
   key: "atom/step",
-  // default: Step.Risk,
-  default: Step.Done,
+  default: Step.Risk,
 });
 
 interface Selections {

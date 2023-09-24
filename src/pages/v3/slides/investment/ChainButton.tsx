@@ -1,4 +1,5 @@
 import { Chain } from "interfaces/chain.interface";
+import { ChainIcon } from "pages/common/coinIcons/ChainIcon";
 import { cn } from "utils/cn";
 
 interface ChainButtonProps {
@@ -6,16 +7,26 @@ interface ChainButtonProps {
   selectedChainId: number | null;
   setChainId: (chainId: number) => void;
 }
-export const ChainButton = ({ chain, selectedChainId, setChainId }: ChainButtonProps) => {
+export const ChainButton = ({
+  chain,
+  selectedChainId,
+  setChainId,
+}: ChainButtonProps) => {
   return (
     <button
       className={cn(
-        "btn",
+        "btn flex-center",
         chain.chainId === selectedChainId ? "btn-primary-active" : "btn-primary"
       )}
       onClick={() => setChainId(chain.chainId)}
     >
-      <p className="text-base">{chain.name}</p>
+      <div className="flex-1 flex justify-end">
+        <ChainIcon size="xl" chain={chain} />
+      </div>
+      <div className="flex-1 flex-center">
+        <p>{chain.name}</p>
+      </div>
+      <div className="flex-1 flex-center" />
     </button>
   );
 };

@@ -23,6 +23,9 @@ const Risk = () => {
         How much <b className="font-medium">RISK</b>
       </p>
       <p className="text-3xl">are you willing to take?</p>
+      <p className="text-lg text-neutral-500 leading-5 mt-2">
+        We will recommend Uniswap V3 investment pools for your risk tolerance
+      </p>
 
       <div className="flex-1 flex justify-center flex-col gap-6">
         <RiskButton risk={0} text={"Low Risk, Low Return"} />
