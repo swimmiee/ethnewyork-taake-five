@@ -15,12 +15,15 @@ export default function HomePage() {
 
         <p className="text-xl mt-4  mb-2">Invest</p>
         <div className="flex flex-col gap-4">
-          <button className="btn btn-primary-active">
-            <Link to={ROUTES.V3}>Invest in UniswapV3</Link>
-          </button>
-          <button className="btn border-[1.5px] border-black bg-rose-400 text-black">
-            <Link to={ROUTES.V4}>Invest in UniswapV4</Link>
-          </button>
+          <Link className="flex-center btn border-[1.5px] border-black bg-primary-500" to={ROUTES.V3}>
+            Invest in UniswapV3
+          </Link>
+          <Link
+            to={ROUTES.V4}
+            className="flex-center btn border-[1.5px] border-black bg-rose-400 text-black"
+          >
+            Invest in UniswapV4
+          </Link>
         </div>
       </div>
     </BG>

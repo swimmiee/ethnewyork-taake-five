@@ -12,7 +12,7 @@ interface Tx {
   value?: BigNumber;
 }
 
-export const RunBundleTx = async (account: Account, txs: Tx[]) => {
+export const runBundleTxs = async (account: Account, txs: Tx[]) => {
   if (account.from === "biconomy") {
     const {
       meta: { smartAccount },
@@ -24,7 +24,6 @@ export const RunBundleTx = async (account: Account, txs: Tx[]) => {
 
     let paymasterServiceData: SponsorUserOperationDto = {
       mode: PaymasterMode.SPONSORED,
-      // optional params...
     };
 
     try {
@@ -33,14 +32,19 @@ export const RunBundleTx = async (account: Account, txs: Tx[]) => {
           partialUserOp,
           paymasterServiceData
         );
+
       partialUserOp.paymasterAndData =
         paymasterAndDataResponse.paymasterAndData;
 
       const userOpResponse = await smartAccount.sendUserOp(partialUserOp);
+      console.log("userOpResponse");
       const transactionDetails = await userOpResponse.wait();
 
       console.log("Transaction Details:", transactionDetails);
-      console.log("Transaction Hash:", userOpResponse.userOpHash);
+      console.log(
+        "Transaction Hash:",
+        transactionDetails.receipt.transactionHash
+      );
     } catch (e) {
       console.error("Error executing transaction:", e);
       // ... handle the error if needed ...

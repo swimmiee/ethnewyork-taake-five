@@ -23,12 +23,12 @@ export const BalanceList = ({ chainId, selectToken }: BalanceListProps) => {
               onClick={() => selectToken(token)}
               className="flex items-center justify-between gap-4 py-4 px-4 hover:bg-neutral-100"
             >
-              .
+              
               <TokenIcon token={token} size="xl" />
               <div className="flex flex-1 justify-between">
                 <p className="text-black">{token.symbol}</p>
                 <div>
-                  <p>Your Balance : {amount}</p>
+                  <p>Your Balance : {(+amount).toFixed(6)}</p>
                 </div>
               </div>
               <IoChevronForward size={22} className="-mr-1" />

@@ -34,7 +34,11 @@ export default function InvestV3Page() {
       {step === Step.Tx && <TXSlide />}
       {step === Step.Done && <Done />}
 
-      {step <= Step.Input && <Footer />}
+      {step <= Step.Input && (
+        <div className="pb-4 px-4">
+          <Footer />
+        </div>
+      )}
     </BG>
   );
 }

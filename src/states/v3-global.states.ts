@@ -42,6 +42,7 @@ export const useV3Step = () => {
     case Step.Input:
       canNext = Boolean(selections[step]);
       break;
+    case Step.Tx:
     case Step.Done:
       canNext = true;
       break;

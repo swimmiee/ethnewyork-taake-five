@@ -2,7 +2,7 @@ import { findToken } from "config";
 import { Token } from "interfaces/token.interface";
 import { TokenIcon } from "pages/common/coinIcons/TokenIcon";
 import { IoChevronForward } from "react-icons/io5";
-import { useBalance, useTokenBalancesInChain } from "states/balances.state";
+import { useBalance } from "states/balances.state";
 import { cn } from "utils/cn";
 import { useNumberInput } from "utils/hooks/useNumberInput";
 
@@ -18,7 +18,7 @@ export const TokenAmount = ({
 }: TokenAmountProps) => {
   const token = findToken(tokenId)!;
   const balance = useBalance(token);
-  const [value, onChangeValue, setValue] = useNumberInput("");
+  const [value, onChangeValue, setValue] = useNumberInput("", token.decimals);
   return (
     <div className="p-4 flex flex-col">
       <div className="flex items-center gap-2">

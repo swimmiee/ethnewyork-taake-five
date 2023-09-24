@@ -26,13 +26,14 @@ export const getBiconomyAPI = (chainId: number) => {
   // @ts-ignore
   const apiKey = BICONOMY_SUPPORTED[chainId].apiKey;
   const bundler = new Bundler({
-    bundlerUrl: `https://bundler.biconomy.io/api/v2/${chainId}/nJPK7B3ru.dd7f7861-190d-41bd-af80-6877f74b8f44`,
+    bundlerUrl: `https://bundler.biconomy.io/api/v2/${chainId}/cJPK7B3ru.dd7f7861-190d-45ic-af80-6877f74b8f44`,
     chainId,
     entryPointAddress: DEFAULT_ENTRYPOINT_ADDRESS,
   });
 
   const paymaster = new BiconomyPaymaster({
     paymasterUrl: `https://paymaster.biconomy.io/api/v1/${chainId}/${apiKey}`,
+    strictMode: false,
   });
 
   return { bundler, paymaster };

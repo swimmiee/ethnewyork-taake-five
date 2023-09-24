@@ -7,7 +7,17 @@ export const useNumberInput = (
   const numberishRegex = new RegExp(
     `^(?:\\d+(?:\\.\\d{0,${decimals}})?|\\.(?:\\d{1,${decimals}})?|)$`
   );
-  const [value, setValue] = useState(numberishValue);
+  const [value, _setValue] = useState(numberishValue);
+
+  const setValue = (newValue: string) => {
+    if (numberishRegex.test(newValue)) {
+      _setValue(newValue);
+    } else if (!isNaN(+newValue)) {
+      const [num, floats] = newValue.split(".");
+      _setValue(`${num}.${floats.slice(0, decimals)}`);
+    }
+  };
+
   const onChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     if (numberishRegex.test(newValue)) {

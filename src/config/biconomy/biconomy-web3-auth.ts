@@ -8,7 +8,7 @@ import { getBiconomyAPI } from "./biconomy.configs";
 import { BiconomySmartAccount } from "@biconomy/account";
 import { useSetAccount } from "states/account.state";
 
-export const useWeb3SocialLogin = (chainId: number) => {
+export const useBiconomyWeb3SocialLogin = (chainId: number) => {
   const [interval, enableInterval] = useState(false);
   const [loading, setLoading] = useState(false);
   const setAccount = useSetAccount<"biconomy">();
@@ -27,7 +27,6 @@ export const useWeb3SocialLogin = (chainId: number) => {
   }, [interval]);
 
   const login = async () => {
-    const chainId = 1;
     initBiconomySocialSDK(chainId);
 
     const sdk = $biconomySocialSDK.getValue();
@@ -37,6 +36,18 @@ export const useWeb3SocialLogin = (chainId: number) => {
     } else {
       setupSmartAccount();
     }
+  };
+
+  const logout = async () => {
+    const sdk = $biconomySocialSDK.getValue();
+    if (!sdk) {
+      console.error("Web3Modal not initialized.");
+      return;
+    }
+    await sdk.logout();
+    sdk.hideWallet();
+    setAccount(null);
+    enableInterval(false);
   };
 
   const setupSmartAccount = async () => {
@@ -50,13 +61,12 @@ export const useWeb3SocialLogin = (chainId: number) => {
 
     try {
       const { bundler, paymaster } = getBiconomyAPI(chainId);
-      let biconomySmartAccount = new BiconomySmartAccount({
+      const biconomySmartAccount = await new BiconomySmartAccount({
         signer: web3Provider.getSigner(),
         chainId,
         bundler,
         paymaster,
-      });
-      biconomySmartAccount = await biconomySmartAccount.init();
+      }).init();
       console.log("owner: ", biconomySmartAccount.owner);
       console.log(
         "address: ",
@@ -69,13 +79,6 @@ export const useWeb3SocialLogin = (chainId: number) => {
         )
       );
 
-      console.log({
-        from: "biconomy",
-        provider: web3Provider,
-        signer: web3Provider.getSigner(),
-        // @ts-ignore
-        address: biconomySmartAccount.address,
-      });
       setAccount({
         from: "biconomy",
         provider: web3Provider,
@@ -93,5 +96,5 @@ export const useWeb3SocialLogin = (chainId: number) => {
     }
   };
 
-  return login;
+  return { loading, login, logout };
 };
