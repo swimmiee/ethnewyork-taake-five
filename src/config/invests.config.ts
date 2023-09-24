@@ -1,16 +1,5 @@
 import { Invest } from "interfaces/invest.interface";
 
-// TODO:
-// scroll에 배포
-// gnosis에 배포
-// Celo에 배포
-
-// ETHEREUM: 1개
-// POLYGON: 15개
-// ARBITRUM: 15개
-// Linea 5개
-// Base 1개
-
 export const V3Invests: Invest[] = [
   {
     id: "64ee0317398fb056385a33c7",
@@ -60,7 +49,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 4323905.102395603,
     volumeUSD24H: 337366.7711990476,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -97,7 +86,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 1494713.531734193,
     volumeUSD24H: 264143.1986842155,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -134,7 +123,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 182373.2098804331,
     volumeUSD24H: 12963.06714137271,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -171,7 +160,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 6148208.538139561,
     volumeUSD24H: 1054166.897316277,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -208,7 +197,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 262656762.7089635,
     volumeUSD24H: 40875852.96536255,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -245,7 +234,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 117250324.7948221,
     volumeUSD24H: 19634660.63477039,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -282,7 +271,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 847945.3794244799,
     volumeUSD24H: 80586.30535304546,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -319,7 +308,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 139567107.9024049,
     volumeUSD24H: 19301021.89655709,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -356,7 +345,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 2482950.370693132,
     volumeUSD24H: 520194.5377620123,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -393,7 +382,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 231430.7998342007,
     volumeUSD24H: 36797.97975599766,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -430,7 +419,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 25390994.12223578,
     volumeUSD24H: 5447302.998778701,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -467,7 +456,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 9023838.512822973,
     volumeUSD24H: 1840543.317526907,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -504,7 +493,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 20615740.47974202,
     volumeUSD24H: 3512365.034728765,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -541,7 +530,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 12532455.13131258,
     volumeUSD24H: 2266964.092567205,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -578,7 +567,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 388747.4820288249,
     volumeUSD24H: 40472.1576590836,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -615,7 +604,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 12964696.37458603,
     volumeUSD24H: 1427292.636604786,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -652,7 +641,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 100686.902269667,
     volumeUSD24H: 8590.356902707368,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -689,7 +678,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 55366763.34784459,
     volumeUSD24H: 7809424.924381256,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -726,7 +715,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 393727.319268,
     volumeUSD24H: 28599.64815499634,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -763,7 +752,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 1387951.42703844,
     volumeUSD24H: 104809.2294440717,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -800,7 +789,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 3414604.81754437,
     volumeUSD24H: 509452.1256990433,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -837,7 +826,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 23487964.096776,
     volumeUSD24H: 3552480.304193974,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -874,7 +863,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 6441344.927140245,
     volumeUSD24H: 718372.5168838501,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -911,7 +900,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 310010.045617,
     volumeUSD24H: 32291.81001599878,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -948,7 +937,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 255149.2454759743,
     volumeUSD24H: 13848.90631563962,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -985,7 +974,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 50512554.83739959,
     volumeUSD24H: 5755180.483596802,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -1022,7 +1011,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 1874441.796154381,
     volumeUSD24H: 158295.7940000296,
     meta: {
-      toaster: "0xB8e0CdbaD514Edc1E8e790F4B6f5F613361802a7",
+      toaster: "0xf7ac8a94b225b5ebd8b223d00c7bfbc96a893233",
       swapRouter: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       positionManager: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
       factory: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -1059,7 +1048,7 @@ export const V3Invests: Invest[] = [
     volumeUSD7D: 27741703.4167794,
     volumeUSD24H: 14510773.12612595,
     meta: {
-      toaster: "0x1d90546025045056C869A8Cf548A38B69082E27a",
+      toaster: "0x14223fb38d9cc73b5e8daff4b36fd8b1c3ff3658",
       swapRouter: "0x2626664c2603336E57B271c5C0b26F421741e481",
       positionManager: "0x03a520b32C04BF3bEEf7BEb72E919cf822Ed34f1",
       factory: "0x33128a8fC17869897dcE68Ed026d694621f6FDfD",
@@ -1159,6 +1148,44 @@ export const V3Invests: Invest[] = [
     inputAssets: [
       "0x176211869cA2b568f2A7D4EE941E073a821EE1ff",
       "0xa219439258ca9da29e9cc4ce5596924745e12b93",
+    ],
+    outputAssets: ["0x46A15B0b27311cedF172AB29E4f4766fbE7F4364"],
+    autoWrap: true,
+  },
+  {
+    id: "64ee0317398fb056385a33x3",
+    name: "GNOSIS-UniswapV3-DAI+USDC-100",
+    chainId: 100,
+    address: "0xA48E0630B7b9dCb250112143C9D0fe47d26CB1e4",
+    project: "Uniswap V3",
+    category: "UniswapV3",
+    tvlUSD: 37460,
+    volumeUSD7D: 435102,
+    volumeUSD24H: 62640,
+    meta: {
+      toaster: "0xa48719d977e5823a7881ba3d7a49b81673adaebb",
+      swapRouter: "0xc6d25285d5c5b62b7ca26d6092751a145d50e9be",
+      positionManager: "0x7b8a01b39d58278b5de7e48c8449c9f4f5170613",
+      factory: "0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865",
+      rewardToken: "0x0D1E753a25eBda689453309112904807625bEFBe",
+      feeTier: 100,
+      tickSpacing: 1,
+    },
+    dynamicMeta: {
+      aprList: [31.78, 15.89, 7.94],
+      rangeList: [
+        [-2, 2],
+        [-4, 4],
+        [-6, 6],
+      ],
+      tick: 276316,
+    },
+    apr: 15.89,
+    apy: 17.22,
+    tier: 1,
+    inputAssets: [
+      "0x176211869cA2b568f2A7D4EE941E073a821EE1ff",
+      "0x4af15ec2a0bd43db75dd04e62faa3b8ef36b00d5",
     ],
     outputAssets: ["0x46A15B0b27311cedF172AB29E4f4766fbE7F4364"],
     autoWrap: true,
