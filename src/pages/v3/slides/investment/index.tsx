@@ -1,40 +1,17 @@
 import { Wrapper } from "pages/v3/sections/Wrapper";
-import { useState } from "react";
-import { cn } from "utils/cn";
-import { CHAINS } from "config/chains.config";
-import { ChainButton } from "./ChainButton";
 import { InvestItemList } from "./InvestItemList";
+import { useV3Selection } from "states/v3-global.states";
+import { Step } from "pages/v3/step.enum";
 
 const Investment = () => {
   // null => no matter
-  const [selectedChainId, setChainId] = useState<number | null>(null);
+  const [selectedChainId] = useV3Selection(Step.Chain);
 
   return (
     <Wrapper>
-      <p className="text-2xl">Which CHAIN do you prefer?</p>
-      <button
-        className={cn(
-          "my-2 btn",
-          selectedChainId === null ? "btn-primary-active" : "btn-primary"
-        )}
-        onClick={() => setChainId(null)}
-      >
-        Any Chain
-      </button>
-      <div className="grid grid-cols-2 gap-2">
-        {CHAINS.map((chain) => (
-          <ChainButton
-            key={chain.chainId}
-            chain={chain}
-            selectedChainId={selectedChainId}
-            setChainId={setChainId}
-          />
-        ))}
-      </div>
-
       {/* Investments */}
-      <p className="text-2xl my-4">Select Uniswap V3 Pool to Invest</p>
-      <InvestItemList chainId={selectedChainId} />
+      <p className="text-3xl mb-4">Select Uniswap V3 Pool to Invest</p>
+      <InvestItemList chainId={selectedChainId as number | null} />
     </Wrapper>
   );
 };

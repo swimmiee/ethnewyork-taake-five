@@ -33,8 +33,8 @@ export const InvestItemList = ({ chainId }: InvestItemListProps) => {
     .sort((a, b) => isInRisk(b, Number(risk)) - isInRisk(a, Number(risk)));
     
   const [page, setPage] = useState<number>(0);
-  const itemsPerPage = 3;
-  const maxPage = Math.floor(Math.max(0, investList.length - 1) / 3);
+  const itemsPerPage = 5;
+  const maxPage = Math.floor(Math.max(0, investList.length - 1) / itemsPerPage);
   const toPrevPage = () => setPage((page) => Math.max(0, page - 1));
   const toNextPage = () => setPage((page) => Math.min(page + 1, maxPage));
 

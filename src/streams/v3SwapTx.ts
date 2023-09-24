@@ -1,12 +1,14 @@
 import { AddressZero } from "@biconomy/common";
+import { findToken } from "config";
+import { encodeTokenId } from "config/tokenIdEncoder";
 import { BigNumber } from "ethers";
-import { SwapPathCandidate, SwapStepDto } from "interfaces/swap-path.dto";
+import { SwapStepDto } from "interfaces/swap-path.dto";
 import { SwapRouterV2__factory } from "typechain";
 
 export const v3Swap = (
   amountIn: BigNumber,
   to: string,
-  { candidates, fromToken, toToken }: SwapStepDto
+  { candidates, fromToken, ...step }: SwapStepDto
 ) => {
   const { path, meta } = candidates[0];
   const swapRouterItf = SwapRouterV2__factory.createInterface();
@@ -14,7 +16,8 @@ export const v3Swap = (
   const executes: string[] = [];
   const value =
     fromToken.address === AddressZero ? amountIn : BigNumber.from(0);
-  const toNative = toToken.address === AddressZero;
+  const toToken = findToken(encodeTokenId(step.toToken))!;
+  const toNative = toToken.type === "NATIVE";
 
   if (path.length === 1) {
     executes.push(
@@ -50,7 +53,6 @@ export const v3Swap = (
         },
       ])
     );
-
   }
 
   if (toNative) {

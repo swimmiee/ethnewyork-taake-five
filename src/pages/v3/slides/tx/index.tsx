@@ -28,7 +28,11 @@ export const TXSlide = () => {
   useEffect(() => {
     const account = $account.getValue();
     if (!account) return;
-    getInvestTx(inputs, invest, account.address).then((txs) => setTxs(txs));
+    const [tickLower, tikUpper] = (priceRange as string).split("-").map(Number);
+    console.log(tickLower, tikUpper)
+    getInvestTx(inputs, invest, tickLower, tikUpper, account.address).then(
+      (txs) => setTxs(txs)
+    );
   }, []);
 
   const runTx = async () => {
